@@ -11,3 +11,6 @@ conn.connect((err) => {
     if(err) throw err;
     console.log("Koneksi Sukses!")
 })
+
+
+module.exports = conn;
