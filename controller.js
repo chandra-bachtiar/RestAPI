@@ -76,3 +76,20 @@ exports.deleteData = (req, res) => {
         }
     );
 }
+
+
+exports.showNested = (req,res) => {
+    koneksi.query(`SELECT 
+    b.idsiswa,b.nama_siswa,b.nim,c.matakuliah,c.sks
+    FROM krs a
+    inner join siswa b on b.idsiswa = a.idsiswa
+    inner join matakuliah c on c.idmatakuliah = a.idmatakuliah
+    order by b.nama_siswa`,
+    function(err,rows,field) {
+        if(err) {
+            koneksi.log(err);
+        } else {
+            response.nested(rows,res);
+        }
+    })
+}
