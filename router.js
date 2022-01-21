@@ -10,4 +10,8 @@ module.exports = function(app) {
     app.route('/showALl/:id').get(json.showById);
 
     app.route('/add').post(json.addSiswa);
+    
+    app.route('/change').put(json.changeData);
+
+    app.route('/delete').delete(json.deleteData);
 }
